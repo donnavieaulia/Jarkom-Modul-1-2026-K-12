@@ -675,12 +675,6 @@ Hasil Netcat harus sesuai dengan respons dari Knights: SYN-ACK pada port 22/80 d
 
 Setelah identitas server diverifikasi, login harus menggunakan publickey tanpa password akun. Periksa user `mika_admin`, hostname Knights, dan konfigurasi `PasswordAuthentication no`.
 
-# Kesimpulan
-
-LAIN berperan sebagai router untuk tiga subnet dengan forwarding dan NAT agar client dapat saling berkomunikasi serta mengakses internet. FTP menyediakan pengaturan hak akses per akun. Pada sesi upload Knights yang dianalisis, perintah `STOR` berhasil dengan respons `226`, data berukuran `1111` byte, dan port PASV `30392`. Pengujian ping Knights ke Chisa menghasilkan 77 paket diterima tanpa packet loss, dengan RTT rata-rata `0.683 ms`.
-
-Analisis Telnet dan SSH membandingkan komunikasi plaintext dengan komunikasi terenkripsi. Pengujian Netcat membedakan port terbuka dan tertutup melalui respons TCP server. Keberhasilan tiap konfigurasi diperiksa menggunakan langkah validasi pada masing-masing soal.
-
 ## Soal 14
 **Deskripsi Soal:** Eiri gagal masuk lewat FTP, sehingga coba serangan brute-force ke form login web punya Alice.
 
