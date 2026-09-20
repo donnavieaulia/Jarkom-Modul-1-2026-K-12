@@ -32,7 +32,6 @@ nc 10.4.89.246 3401
 <img width="819" height="578" alt="Screenshot 2026-09-20 at 14 23 15" src="https://github.com/user-attachments/assets/b9f427be-9881-4bab-b548-93d921c8c409" />
 
 
-   ![Nama Alternatif](src/05.png)
 
 5. Dari hasil HTTP Stream ditemukan password untuk user `lain_admin`, yaitu:
    - **Username:** `lain_admin`
@@ -57,7 +56,8 @@ nc 10.4.89.246 3401
 
 Hasil validasi berhasil setelah memasukkan jawaban yang sesuai.
 
-![Hasil Validasi](src/06.png)
+<img width="716" height="474" alt="Screenshot 2026-09-20 at 20 19 46" src="https://github.com/user-attachments/assets/abcf0228-2621-49fc-9310-cff50a0a305e" />
+
 
 
 ## Soal 15
@@ -77,7 +77,8 @@ nc 10.4.89.246 3402
    
    `usb`
 
-   ![Nama Alternatif](src/07.png)
+   <img width="773" height="556" alt="Screenshot 2026-09-20 at 20 26 16" src="https://github.com/user-attachments/assets/cfa06742-60ae-4175-af4e-ac29d50784a2" />
+
 
 2. Dari packet details ditemukan informasi perangkat USB berupa:
    - **Vendor ID:** `0x046d`
@@ -86,9 +87,12 @@ nc 10.4.89.246 3402
 
 3. Selanjutnya dilakukan analisis pada data HID untuk mengetahui karakter yang dikirimkan oleh perangkat.
 
-   ![Nama Alternatif](src/08.png)
+   <img width="627" height="444" alt="Screenshot 2026-09-20 at 20 30 54" src="https://github.com/user-attachments/assets/73149e6f-e77a-4364-9fa3-1a6164df573f" />
+
 
 4. Data HID kemudian diterjemahkan berdasarkan USB HID Usage Tables. Perlu memperhatikan nilai modifier karena `0x02` menunjukkan penggunaan **Left Shift**.
+<img width="627" height="444" alt="Screenshot 2026-09-20 at 20 30 54" src="https://github.com/user-attachments/assets/7406bd47-7ea9-4dc7-8461-bc77ccb446fa" />
+
 
 5. Setelah seluruh data HID diterjemahkan, diperoleh pesan rahasia:
    
@@ -107,7 +111,8 @@ Dilakukan validasi menggunakan:
 nc 10.4.89.246 3402
 ```
 
-![Hasil Validasi](src/09.png)
+<img width="561" height="380" alt="Screenshot 2026-09-20 at 20 37 17" src="https://github.com/user-attachments/assets/3db5f76f-097c-4136-b0bc-2288ba47666a" />
+
 
 
 ## Soal 16
@@ -125,7 +130,8 @@ nc 10.4.89.246 3403
 ### Penyelesaian dan Hasil Analisis
 1. Gunakan filter `ftp` pada Wireshark untuk menampilkan komunikasi FTP.
 
-   ![Nama Alternatif](src/10.png)
+   <img width="620" height="454" alt="Screenshot 2026-09-20 at 21 04 59" src="https://github.com/user-attachments/assets/f45054f9-e6a6-40f7-bf68-b1dae956fc58" />
+
 
 2. Untuk menemukan proses pengambilan file, gunakan filter:
 
@@ -141,7 +147,8 @@ nc 10.4.89.246 3403
 
    Sehingga IP server FTP adalah `198.51.100.7`.
 
-   ![Nama Alternatif](src/11.png)
+<img width="620" height="454" alt="Screenshot 2026-09-20 at 21 04 59" src="https://github.com/user-attachments/assets/4a9cd2c0-943a-483f-b4fc-9cc2370a2a65" />
+
 
 4. Selanjutnya dilakukan **Follow > TCP Stream** untuk melihat banner FTP.
 
@@ -152,7 +159,6 @@ nc 10.4.89.246 3403
    Sehingga software FTP yang digunakan adalah:
    - **FTP Software:** `vsftpd 3.0.5`
 
-   ![Nama Alternatif](src/12.png)
 
 5. Pada komunikasi FTP ditemukan kredensial login:
 
@@ -184,7 +190,8 @@ Dilakukan validasi menggunakan:
 nc 10.4.89.246 3403
 ```
 
-![Hasil Validasi](src/13.png)
+<img width="577" height="327" alt="Screenshot 2026-09-20 at 21 08 12" src="https://github.com/user-attachments/assets/d6e90391-84f4-4454-a1c7-02e5e2c18451" />
+
 
 
 ## Soal 17
@@ -202,7 +209,8 @@ nc 10.4.89.246 3404
 ### Penyelesaian dan Hasil Analisis
 1. Gunakan filter `http` pada Wireshark untuk menampilkan seluruh komunikasi HTTP.
 
-   ![Nama Alternatif](src/14.png)
+   <img width="621" height="460" alt="Screenshot 2026-09-20 at 21 15 40" src="https://github.com/user-attachments/assets/7f1dfb7f-33d8-441c-8cf1-dd641e274c8d" />
+
 
 2. Dari beberapa HTTP request, ditemukan request menuju server:
 
@@ -214,7 +222,7 @@ nc 10.4.89.246 3404
    - **Destination Port:** `80`
    - **Host:** `wired-update.net`
 
-   ![Nama Alternatif](src/15.png)
+ 
 
 4. Dari request tersebut ditemukan nama executable yang diminta:
 
@@ -225,8 +233,9 @@ nc 10.4.89.246 3404
    `HTTP/1.1 200 OK`
 
    sehingga HTTP status code yang diperoleh adalah `200`.
+<img width="559" height="592" alt="Screenshot 2026-09-20 at 21 24 13" src="https://github.com/user-attachments/assets/42784224-ae70-4545-b06e-729eeb45b108" />
 
-   ![Nama Alternatif](src/16.png)
+   
 
 6. Informasi tambahan pada response menunjukkan server menggunakan `nginx/1.24.0`.
 
@@ -243,7 +252,8 @@ Dilakukan validasi menggunakan:
 nc 10.4.89.246 3404
 ```
 
-![Hasil Validasi](src/17.png)
+<img width="562" height="434" alt="Screenshot 2026-09-20 at 21 22 17" src="https://github.com/user-attachments/assets/00852f80-7b1a-4b1d-a85a-72069c495c61" />
+
 
 
 ## Soal 18
@@ -261,7 +271,8 @@ nc 10.4.89.246 3405
 ### Penyelesaian dan Hasil Analisis
 1. Gunakan filter `smb2` pada Wireshark untuk menampilkan komunikasi SMB2.
 
-   ![Nama Alternatif](src/18.png)
+ <img width="692" height="506" alt="Screenshot 2026-09-20 at 21 25 02" src="https://github.com/user-attachments/assets/156621ba-d743-4945-a8da-14d9bb47fb14" />
+
 
 2. Pada packet **Create Request** ditemukan komunikasi:
 
@@ -269,7 +280,7 @@ nc 10.4.89.246 3405
    - **Destination:** `10.7.1.50`
    - **File:** `System32\wired_trojan_payload.exe`
 
-   ![Nama Alternatif](src/19.png)
+
 
 3. Pada packet **Write Request** juga ditemukan file yang sama:
 
@@ -277,7 +288,8 @@ nc 10.4.89.246 3405
 
    Hal ini menunjukkan adanya proses penulisan/transfer file menuju host penerima.
 
-   ![Nama Alternatif](src/20.png)
+   <img width="1042" height="756" alt="Screenshot 2026-09-20 at 21 27 37" src="https://github.com/user-attachments/assets/db5a51bc-17c7-4bec-b0df-e0e497049a13" />
+
 
 4. Berdasarkan hasil analisis packet, diperoleh informasi bahwa protokol yang digunakan adalah SMB2.
 
@@ -295,7 +307,8 @@ Dilakukan validasi menggunakan:
 nc 10.4.89.246 3405
 ```
 
-![Hasil Validasi](src/21.png)
+<img width="820" height="344" alt="Screenshot 2026-09-20 at 21 28 16" src="https://github.com/user-attachments/assets/fa2303dd-468c-43b4-8966-88d0066fe8f3" />
+
 
 
 ## Soal 19
@@ -313,7 +326,8 @@ nc 10.4.89.246 3406
 ### Penyelesaian dan Hasil Analisis
 1. Gunakan filter `smtp` pada Wireshark untuk menampilkan komunikasi SMTP.
 
-   ![Nama Alternatif](src/22.png)
+  <img width="833" height="612" alt="Screenshot 2026-09-20 at 21 32 31" src="https://github.com/user-attachments/assets/8921f28d-46f9-4cbe-8249-a70e0ee294f2" />
+
 
 2. Selanjutnya gunakan filter:
 
@@ -323,11 +337,13 @@ nc 10.4.89.246 3406
 
 3. Ditemukan beberapa komunikasi email. Setelah dilakukan pemeriksaan terhadap masing-masing isi email, komunikasi pada packet 84 merupakan email ancaman yang berisi informasi pemerasan.
 
-   ![Nama Alternatif](src/23.png)
+ <img width="687" height="501" alt="Screenshot 2026-09-20 at 21 33 10" src="https://github.com/user-attachments/assets/d63db1a4-447a-48fd-9369-ade4fce43d28" />
+
 
 4. Pada packet tersebut dilakukan **Follow > TCP Stream** untuk membaca isi email secara lengkap.
 
-   ![Nama Alternatif](src/24.png)
+   <img width="449" height="485" alt="Screenshot 2026-09-20 at 21 33 50" src="https://github.com/user-attachments/assets/c0494dd8-e61c-41f3-b6dc-0819714242c5" />
+
 
 5. Dari isi email ditemukan informasi:
    - **Victim Email:** `victim@protocol7.co.jp`
@@ -350,7 +366,8 @@ Dilakukan validasi menggunakan:
 nc 10.4.89.246 3406
 ```
 
-![Hasil Validasi](src/25.png)
+<img width="497" height="448" alt="Screenshot 2026-09-20 at 21 34 22" src="https://github.com/user-attachments/assets/05915fa0-0068-4908-8103-cfdf9b9712e2" />
+
 
 
 ## Soal 20
@@ -372,13 +389,15 @@ nc 10.4.89.246 3407
 
    `tls`
 
-   ![Nama Alternatif](src/26.png)
+   <img width="1048" height="761" alt="Screenshot 2026-09-20 at 21 38 04" src="https://github.com/user-attachments/assets/2b751abc-9480-4a4c-bf8f-dd816abe4c37" />
+
 
 2. Pada packet Client Hello ditemukan informasi SNI:
 
    `example.com`
 
-   ![Nama Alternatif](src/27.png)
+   <img width="1048" height="759" alt="Screenshot 2026-09-20 at 21 41 09" src="https://github.com/user-attachments/assets/0f4a5445-5343-424a-885f-6b84cfb5f519" />
+
 
 3. Pada bagian detail TLS ditemukan versi:
 
@@ -403,11 +422,11 @@ nc 10.4.89.246 3407
 
    Setelah itu klik **Apply/OK**.
 
-   ![Nama Alternatif](src/28.png)
+ <img width="680" height="475" alt="Screenshot 2026-09-20 at 21 42 09" src="https://github.com/user-attachments/assets/cc12fa91-b853-4df7-9839-1d66aad4e8b8" />
+
 
 6. Setelah key log berhasil digunakan, filter `http` dapat digunakan untuk melihat HTTP yang sebelumnya terenkripsi.
 
-   ![Nama Alternatif](src/29.png)
 
 7. Pada packet HTTP ditemukan:
 
@@ -419,7 +438,7 @@ nc 10.4.89.246 3407
    - **User-Agent:** `curl/7.62.0`
    - **Accept:** `*/*`
 
-   ![Nama Alternatif](src/30.png)
+   
 
 8. Dari request tersebut diketahui HTTP method dan path yang tersembunyi di dalam komunikasi TLS:
    - **HTTP Method:** `HEAD`
@@ -440,7 +459,8 @@ Dilakukan validasi menggunakan:
 nc 10.4.89.246 3407
 ```
 
-![Hasil Validasi](src/31.png)
+<img width="566" height="250" alt="Screenshot 2026-09-20 at 21 42 59" src="https://github.com/user-attachments/assets/8171ee54-6eec-4b2a-b745-c429ffad9f48" />
+
 
 
 # Kesimpulan
